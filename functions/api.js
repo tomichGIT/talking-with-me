@@ -34,10 +34,13 @@ app.get('/', (req, res) => {
   res.render('index'); // Assuming your EJS file is named "index.ejs"
 });
 
-// router.get('/', (req, res) => {
-//   console.log("trying to find /");
-//   res.render('index.ejs');
-// });
+
+// -------- Rutas /.netlify/functions/api/xxxxx --------
+
+router.get('/', (req, res) => {
+  console.log("trying to find /");
+  res.render('index.ejs');
+});
 
 router.post('/upload', upload.single('audio'), async (req, res) => {
   if (!req.file) {
