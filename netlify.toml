@@ -1,0 +1,10 @@
+[build]
+  command = "npm install && npm run deploy"
+  publish = "public" 
+  functions = "functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[build.environment]
+  NODE_VERSION = "18"

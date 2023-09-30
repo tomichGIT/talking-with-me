@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #000000;
+    margin: 0;
+  }
+
+  #backgroundVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    object-fit: cover;
+  }  
+  
+  #gifContainer img {
+    opacity: 0.90;
+    position: absolute;
+    bottom: 333px;
+    right: 70px;
+    width: 35%;
+    image-rendering: pixelated;
+  }
+
+  #processing_input{
+    opacity: 1 !important;
+    position: absolute;
+    bottom: 90px !important;
+    left: 150px;
+    width: 22% !important;
+    image-rendering: pixelated;
+  }
+
+  /* CONTROLS SECTION */
+  #controls {
+    margin-top: 74vh;
+    margin-left: 160px;
+  }
+
+  button {
+    background: transparent;
+    border-style: none;
+  }
+
+  button img{
+    width: 50px;
+    height: 50px;
+  }
+
+   #recording_audio_gif{
+    width: 200px; 
+    /* background-color: #21EF80; */
+    animation-duration: 10s;
+    border-radius: 50px;
+   }
+
+     /* REVIEW THIS CLASS: */
+  .disable, svg:hover {
+    filter: brightness(0.5);
+   }
+
+   .hiden{
+    visibility: hidden;
+  }
+
+   @media only screen and (max-width: 600px) {
+    /* MOBILES */
+    #app{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #controls{
+      margin-top: 80vh;
+      margin-left: 0;
+    }
+
+    #gifContainer img {
+      bottom: 357px;
+      right: 9px;
+      width: 90%;
+    }
+
+    #recording_audio_gif{
+      width: 80px; 
+     }
+  }
