@@ -10,9 +10,6 @@ const router = Router();
 
 //router.use(express.static('public'));
 
-// New Code
-app.set('view engine', 'ejs'); // Set EJS as the view engine
-app.set('views', "./views");
 
 
 const storage = multer.diskStorage({
@@ -24,15 +21,22 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 
+console.log("corriendo api.js");
 // Serve static files from the "public" directory
 app.use(express.static('public'));
-app.use(router);
 
-// sin utilizar router con su prepend /.netlify/functions/api...
-app.get('/', (req, res) => {
-  //console.log("trying to find2 /");
-  res.render('index'); // Assuming your EJS file is named "index.ejs"
-});
+
+
+// New Code
+app.set('view engine', 'ejs'); // Set EJS as the view engine
+app.set('views', "./views");
+
+
+// // sin utilizar router con su prepend /.netlify/functions/api...
+// app.get('/', (req, res) => {
+//   //console.log("trying to find2 /");
+//   res.render('index'); // Assuming your EJS file is named "index.ejs"
+// });
 
 
 // -------- Rutas /.netlify/functions/api/xxxxx --------
@@ -69,6 +73,7 @@ router.post('/upload', upload.single('audio'), async (req, res) => {
 });
 
 app.use('/.netlify/functions/api', router);
+//app.use(router);
 
 
 // probar crear server de express en vez de usar serverless de netlify
@@ -76,6 +81,7 @@ export const handler = serverless(app);
 
 
 // New Code
+
 // app.listen(3005, () => {
 //   console.log('Server is running on port 3005');
 // });
